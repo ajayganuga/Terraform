@@ -1,5 +1,5 @@
 resource "aws_instance" "this" {
-  ami                    = "ami-0220d79f3f480ecf5" # Update for your region
+  ami                    = "ami-0220d79f3f480ecf5" 
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
 
@@ -20,13 +20,6 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    description = "HTTP"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 
   egress {
     from_port   = 0
